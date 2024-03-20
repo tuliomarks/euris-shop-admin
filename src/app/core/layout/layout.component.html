@@ -1,0 +1,15 @@
+<div class="flex flex-row h-screen">
+  <div class="flex flex-col bg-gray-800 text-white p-4 items-center">
+    <div class="text-white mb-4">Euris Shop</div>
+    <nav class="flex flex-col">
+      <a class="text-center bg-gray-600 p-2 rounded" mat-icon-button [routerLink]="['dashboard']">
+        <mat-icon>dashboard_outline</mat-icon>
+        <div class="text-sm">Dashboard</div>
+      </a>
+    </nav>
+  </div>  
+  <main class="flex-1">
+    <!-- Main Route Navigation (Content) -->
+    <ng-content></ng-content>
+  </main>
+</div>

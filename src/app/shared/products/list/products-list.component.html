@@ -1,0 +1,16 @@
+<div [ngClass]="getGridViewClass()">
+    <ng-container *ngIf="!isLoading">
+        <div *ngFor="let product of products" class="flex flex-row bg-white shadow-md rounded-lg overflow-hidden mb-2">
+            <div class="px-4 py-2 flex-1">
+                <div>{{ product.data.title }} <small>({{ product.id }})</small></div>
+                <div class="text-sm">{{ product.data.description }}</div>
+                <div class="text-sm text-gray-600">{{ product.data.category }} - {{ product.data.reviews?.length || '0' }} reviews</div>
+            </div>
+            <div class="flex justify-end items-center px-4 py-2">
+                <button mat-icon-button (click)="openConfirmationDialog(product.id)">
+                    <mat-icon aria-hidden="false" aria-label="Delete">delete_outline</mat-icon>
+                </button>
+            </div>
+        </div>
+    </ng-container>
+  </div>

@@ -1,0 +1,42 @@
+<form class="flex flex-col" [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <mat-form-field class="w-full">
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="title">
+    <mat-error *ngIf="productForm.get('title').hasError('required')">Title is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="w-full">
+    <mat-label>Category</mat-label>
+    <input matInput formControlName="category">
+    <mat-error *ngIf="productForm.get('category').hasError('required')">Category is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="w-full">
+    <mat-label>Price</mat-label>
+    <input matInput type="number" formControlName="price" required>
+    <mat-error *ngIf="productForm.get('price').hasError('required')">Price is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="w-full">
+    <mat-label>Employee</mat-label>
+    <input matInput formControlName="employee">
+    <mat-error *ngIf="productForm.get('employee').hasError('required')">Employee is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="w-full">
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description"></textarea>
+    <mat-error *ngIf="productForm.get('description').hasError('required')">Description is required</mat-error>
+  </mat-form-field>
+
+  <!-- TODO: Improve it to have a multi form group or use MatChips -->
+  <mat-form-field class="w-full">
+    <mat-label>Reviews</mat-label>
+    <input matInput formControlName="reviews">
+    <mat-hint align="end">To add more then one use "," as separator</mat-hint>
+  </mat-form-field>
+
+  <div class="flex justify-end">
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </div>
+</form>

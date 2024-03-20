@@ -1,0 +1,14 @@
+<!-- Header -->
+<header class="bg-gray-200 py-4 px-8">
+  <h1 class="text-2xl font-bold" *ngIf="isInserting">New Product</h1>
+  <h1 class="text-2xl font-bold" *ngIf="!isInserting">Modifing Product {{product?.title}}</h1>
+</header>
+<div class="container mt-8 flex justify-center p-4">
+
+  <!-- Chart -->
+  <div class="flex-1 bg-white shadow-md rounded-lg overflow-hidden mx-4">
+    <product-form [storeId]="storeId" [productId]="productId" [model]="product"/>
+  </div>
+
+</div>
+

@@ -1,0 +1,40 @@
+<!-- Header -->
+<header class="bg-gray-200 py-4 px-8">
+  <h1 class="text-2xl font-bold">Dolci di Piera</h1>
+</header>
+
+<!-- Main Content -->
+<div class="container mx-auto mt-8 flex justify-center p-4">
+
+  <!-- Chart -->
+  <div class="flex-1 bg-white shadow-md rounded-lg overflow-hidden mx-4">
+      <div class="p-4">
+          <h2 class="text-xl font-semibold mb-4">Products by Categories</h2>
+          <products-chart [storeId]="storeId"></products-chart>
+      </div>
+  </div>
+
+  <!-- Products list -->
+  <div class="flex-1  bg-white shadow-md rounded-lg overflow-hidden mx-4">
+      <div class="p-4">
+        <div class="flex flex-row justify-between">
+          <h2 class="text-xl font-semibold mb-4">Products</h2>
+          <div class="flex flex-row">
+            <button 
+              class="mr-2 align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-3 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+              mat-button (click)="navigateNewProduct()">
+              <mat-icon aria-hidden="false" aria-label="Add New Product">add</mat-icon>
+            </button>
+            <button 
+                class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-3 rounded-lg bg-gray-300 shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+                mat-button (click)="toggleGridView()">
+              <mat-icon aria-hidden="false" aria-label="Change to grid view" *ngIf="!isGridView">grid_view</mat-icon>
+              <mat-icon aria-hidden="false" aria-label="Change to list view" *ngIf="isGridView">list_view</mat-icon>
+            </button>
+          </div>
+        </div>
+        <products-list [storeId]="storeId" [gridView]="isGridView"></products-list>
+      </div>
+  </div>
+
+</div>
